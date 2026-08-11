@@ -12,15 +12,18 @@
       <h1>縦書き表示</h1>
     </header>
 
-    <!-- メイン：縦書き表示エリア（上） -->
-    <main class="output-section">
-      <div id="text-output" class="vertical-text"></div>
-    </main>
+    <!-- 表示エリアと入力エリアをまとめるコンテナ -->
+    <div class="content-body">
+      <!-- 縦書き表示エリア -->
+      <main class="output-section">
+        <div id="text-output" class="vertical-text"></div>
+      </main>
 
-    <!-- サブ：テキスト入力エリア（下） -->
-    <footer class="input-section">
-      <textarea id="text-input" placeholder="ここに文字を入力すると上に縦書きで表示されます..."></textarea>
-    </footer>
+      <!-- テキスト入力エリア -->
+      <section class="input-section">
+        <textarea id="text-input" placeholder="ここに文字を入力してください..."></textarea>
+      </section>
+    </div>
   </div>
 
   <script src="script.js"></script>

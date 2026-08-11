@@ -1,63 +1,85 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
   background-color: #f7f5f0;
   color: #333;
-  margin: 0;
-  padding: 20px;
+  height: 100vh;
+  /* スマホのツールバー対策 */
+  height: 100dvh; 
+  overflow: hidden; /* 全体の無駄なスクロールを防ぐ */
 }
 
-h1 {
-  text-align: center;
-}
-
-.container {
+.app-container {
   display: flex;
-  gap: 20px;
-  max-width: 1000px;
+  flex-direction: column;
+  height: 100%;
+  max-width: 800px;
   margin: 0 auto;
+  padding: 10px;
+  gap: 10px;
 }
 
-.input-section, .output-section {
-  flex: 1;
+/* コンパクトなタイトル */
+.app-header h1 {
+  font-size: 16px;
+  text-align: center;
+  color: #666;
+  padding: 2px 0;
+  font-weight: normal;
+}
+
+/* 縦書き表示エリア（画面のメインスペースを確保） */
+.output-section {
+  flex: 1; /* 残りの高さをすべて使う */
   background: #fff;
-  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  padding: 15px;
+  overflow: hidden;
+  display: flex;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto; /* 長文の時は横にスクロール */
+  overflow-y: hidden;
+  font-size: 18px;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  word-break: break-all;
+}
+
+/* テキスト入力エリア（下部に配置・高さを低く抑える） */
+.input-section {
+  height: 90px; /* 高さを抑えて場所を取らない */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  padding: 8px;
 }
 
 textarea {
   width: 100%;
-  height: 300px;
-  padding: 10px;
-  font-size: 16px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
+  height: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
   border-radius: 4px;
-  resize: vertical;
-}
-
-/* 縦書きスタイルの核となる部分 */
-.vertical-text {
-  writing-mode: vertical-rl; /* 縦書き・右から左 */
-  -webkit-writing-mode: vertical-rl;
-  height: 300px;
-  width: 100%;
-  overflow-x: auto; /* 長くなった場合に横スクロール */
-  font-size: 18px;
-  line-height: 1.8;
-  padding: 10px;
-  box-sizing: border-box;
-  border: 1px solid #eee;
+  resize: none; /* スマホでサイズ調整ハンドルを非表示 */
+  font-family: inherit;
   background-color: #fafafa;
 }
 
-/* スマホ向けのスタイル調整 */
-@media (max-width: 600px) {
-  .container {
-    flex-direction: column; /* 縦並びにする */
-  }
-  
-  textarea, .vertical-text {
-    height: 200px; /* スマホ用に高さ調整 */
-  }
+textarea:focus {
+  outline: none;
+  border-color: #888;
+  background-color: #fff;
 }

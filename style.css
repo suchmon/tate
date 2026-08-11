@@ -1,0 +1,63 @@
+body {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+  background-color: #f7f5f0;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.input-section, .output-section {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+textarea {
+  width: 100%;
+  height: 300px;
+  padding: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+/* 縦書きスタイルの核となる部分 */
+.vertical-text {
+  writing-mode: vertical-rl; /* 縦書き・右から左 */
+  -webkit-writing-mode: vertical-rl;
+  height: 300px;
+  width: 100%;
+  overflow-x: auto; /* 長くなった場合に横スクロール */
+  font-size: 18px;
+  line-height: 1.8;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+}
+
+/* スマホ向けのスタイル調整 */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column; /* 縦並びにする */
+  }
+  
+  textarea, .vertical-text {
+    height: 200px; /* スマホ用に高さ調整 */
+  }
+}

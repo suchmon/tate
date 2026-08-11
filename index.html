@@ -7,20 +7,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>縦書き表示アプリ</h1>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>縦書き表示</h1>
+    </header>
 
-  <div class="container">
-    <!-- 入力エリア -->
-    <div class="input-section">
-      <h2>テキスト入力</h2>
-      <textarea id="text-input" placeholder="ここに文字を入力してください..."></textarea>
-    </div>
-
-    <!-- 表示エリア -->
-    <div class="output-section">
-      <h2>縦書き表示</h2>
+    <!-- メイン：縦書き表示エリア（上） -->
+    <main class="output-section">
       <div id="text-output" class="vertical-text"></div>
-    </div>
+    </main>
+
+    <!-- サブ：テキスト入力エリア（下） -->
+    <footer class="input-section">
+      <textarea id="text-input" placeholder="ここに文字を入力すると上に縦書きで表示されます..."></textarea>
+    </footer>
   </div>
 
   <script src="script.js"></script>
